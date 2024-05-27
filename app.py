@@ -42,7 +42,7 @@ def inserisci_dati(query, params=None):
 connection = mysql.connector.connect(host='localhost',
                                      database='my_podcast',
                                      user='root',
-                                     password='')
+                                     password='root')
 cursor = connection.cursor()
 
 def hash_password(password):
@@ -142,6 +142,11 @@ def logout():
     session.pop('loggedin', None)
     session.pop('username', None)
     return redirect(url_for('login'))
+
+@app.route('/podcast_info')
+def info():
+    #podcast = execute_query('SELECT * FROM utenti WHERE utenti_ID = %s')
+    return render_template('podcast_info.html', username=session['username'])
 
 if __name__ == '__main__':
     app.run(debug=True)

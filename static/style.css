@@ -182,9 +182,94 @@ ul li {
     width: 90%;
 }
 
+/*PODCAST INFO*/
+.bg {
+    font-family: sans-serif;
+    background-color: hsl(212, 81%, 21%);
+    margin: 0;
+    font-weight: 400;
+}
+
+.content {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 1px solid white;
+}
+
+.recensione-box {
+    color: white;
+    width: 30rem;
+    background: hsl(0, 0%, 0%);
+    border-radius: 10px;
+    box-shadow: 1px 5px 20px 9px hsl(295, 40%, 50%);
+}
+
+.recensione-box img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+}
+
+.testo-bianco li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.recensione-field {
+    border: solid 1px grey;
+    border-radius: 10px;
+    height: 3rem;
+    width: 25rem;
+}
+
+.recensione-button {
+    background-color: black;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 15px;
+    height: 3rem;
+    width: 10rem;
+    transition: 0.5s;
+}
+
+.recensione-button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+.testo-recensione {
+    width: 60rem;
+    word-wrap: break-word;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.text-box {
+    width: 30rem;
+    word-wrap: break-word;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 @media screen and (min-width: 992px) {
     .login-height {
         margin-bottom: 10rem;
+    }
+
+    .text-box {
+        width: 50rem;
+    }
+}
+
+@media screen and (min-width: 795px) and (max-width: 991px) {
+    .text-box {
+        width: 40rem;
     }
 }
 
@@ -200,10 +285,18 @@ ul li {
     .login-titolo {
         font-size: 2.5rem;
     }
+
+    .text-box {
+        width: 30rem;
+    }
 }
 
 @media screen and (min-width: 374px) and (max-width: 794px) {
     .login-titolo {
         font-size: 3rem;
+    }
+
+    .text-box {
+        width: 26rem;
     }
 }
