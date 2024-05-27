@@ -148,5 +148,16 @@ def info():
     #podcast = execute_query('SELECT * FROM utenti WHERE utenti_ID = %s')
     return render_template('podcast_info.html', username=session['username'])
 
+@app.route('/recensione', methods=['GET', 'POST'])
+def recensione():
+    if request.method == 'POST':
+        titolo = request.form['titolo-recensione']
+        recensione = request.form['recensione']
+        rating = request.form['rating']
+        cursor.execute('INSERT INTO recensioni_sito (titolo, testo, voto) VALUES (%s, %s, %s)', (titolo, recensione, rating))
+        connection.commit()
+        return redirect(url_for('recensione'))
+    return render_template('podcast_info.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

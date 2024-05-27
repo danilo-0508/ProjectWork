@@ -35,23 +35,38 @@
     <div class="container-fluid">
         <div class="recensioni">
             <h2 class="testo-bianco mt-3">Recensioni</h2>
-            <form class="my-2" action="">
-                <input class="recensione-field" type="text" placeholder="Scrivi recensione...">
+            <form class="my-2" action="{{url_for('recensione')}}" method="post">
+                <input id="titolo-recensione" name="titolo-recensione" class="recensione-field" type="text"
+                    placeholder="Titolo recensione..." required>
+                <input id="recensione" name="recensione" class="recensione-field" type="text"
+                    placeholder="Scrivi recensione..." required>
+                <select class="rating-field" name="rating" id="rating" required>
+                    <option value="">Seleziona un rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
                 <button class="recensione-button mt-2"><b>Invia Recensione</b></button>
             </form>
             <ul class="testo-bianco">
+                <li class="text-box"></li>
                 <li class="text-box"><b>{{username}}: </b>
                     Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!
+                    <div><b>Rating: </b>5</div>
                 </li>
                 <li class="text-box"><b>{{username}}: </b>
                     Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!
+                    <div><b>Rating: </b>5</div>
                 </li>
                 <li class="text-box"><b>{{username}}: </b>
                     Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!Ottimo!
                 </li>
                 <li><b>{{username}}:</b> Ottimo!</li>
                 <li>{{username}}: Ottimo!</li>
-                <li>{{username}}: Ottimo!</li>
+                <li>{{username}}: Ottimo!<div><b>Rating: </b>5</div>
+                </li>
                 <li>{{username}}: Ottimo!</li>
                 <li>{{username}}: Ottimo!</li>
                 <li>{{username}}: Ottimo!</li>

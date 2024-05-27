@@ -255,6 +255,15 @@ ul li {
     word-wrap: break-word;
     padding: 10px;
     box-sizing: border-box;
+    border-bottom: 1px solid white;
+}
+
+.rating-field {
+    border-radius: 20px;
+    border: 1px solid gray;
+    width: 11rem;
+    height: 3rem;
+    text-align: center;
 }
 
 @media screen and (min-width: 992px) {
