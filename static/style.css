@@ -1,0 +1,209 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.titolo {
+    font-family: "Indie Flower", cursive;
+    font-size: 5rem;
+    color: white;
+}
+
+.testo-bianco {
+    font-family: 'Fraunces', sans-serif;
+    color: white;
+}
+
+.link {
+    font-family: 'Fraunces', sans-serif;
+    color: whitesmoke;
+    transition: 0.5s;
+}
+
+.link:hover {
+    font-size: 1.3rem !important;
+    font-weight: 700;
+    color: red;
+    transition: 0.5s;
+}
+
+.navbar-transparent {
+    background-color: none;
+    transition: background-color 1s;
+}
+
+.navbar-colored {
+    background-color: #469fff;
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(0, 0, 133));
+    transition: background-color 1s;
+}
+
+.member {
+    height: 10rem;
+    border-radius: 100%;
+}
+
+.nav-selected {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: red;
+}
+
+.cerca {
+    border: solid 1px grey;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    height: 2rem;
+    width: 20rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.btn-categorie {
+    border: solid 1px grey;
+    border-radius: 10px;
+    background-color: hsl(234, 29%, 20%);
+    width: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    transition: 0.5s;
+}
+
+.pages {
+    display: flex;
+    align-items: center;
+}
+
+ul li {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/*STYLE NEWSLETTER*/
+.box {
+    background-color: black;
+    border-radius: 2rem;
+    box-shadow: 1px 5px 20px 9px hsl(295, 40%, 50%);
+
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+}
+
+.field {
+    border: solid 1px grey;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    height: 2rem;
+    width: 20rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.button {
+    border: solid 1px grey;
+    border-radius: 10px;
+    background-color: hsl(234, 29%, 20%);
+    width: 20rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    transition: 0.5s;
+}
+
+.button:hover {
+    background-image: linear-gradient(to right, hsl(314, 100%, 67%), hsl(4, 100%, 67%));
+    box-shadow: 1px 1px 2rem 9px hsl(295, 60%, 50%);
+    transition: 0.5s;
+}
+
+.success {
+    display: none;
+    background-color: black;
+    border-radius: 2rem;
+    padding: 2rem 3rem 1rem 2rem;
+    box-shadow: 1px 5px 20px 9px hsl(295, 40%, 50%);
+
+}
+
+.login-card {
+    background-color: whitesmoke;
+    border-radius: 20px;
+    height: 380px;
+    box-shadow: 1px 5px 20px 9px hsl(0, 0%, 16%);
+}
+
+.login-field {
+    border: solid 1px grey;
+    border-radius: 10px;
+    height: 3rem;
+    width: 18rem;
+}
+
+.login-button {
+    border: solid 1px grey;
+    color: whitesmoke;
+    font-weight: 700;
+    font-family: 'Fraunces', sans-serif;
+    background-color: black;
+    border-radius: 10px;
+    height: 3rem;
+    width: 24rem;
+    transition: 0.5s;
+}
+
+.login-button:hover {
+    color: black;
+    background-color: whitesmoke;
+    transition: 0.5s;
+}
+
+.login-titolo {
+    font-family: "Indie Flower", cursive;
+    font-size: 5rem;
+    color: rgb(0, 194, 0);
+}
+
+.categoria-card {
+    background-image: linear-gradient(to right, hsl(295, 40%, 50%), hsl(295, 100%, 75%));
+    border-radius: 15px;
+    height: 10rem;
+    width: 90%;
+}
+
+@media screen and (min-width: 992px) {
+    .login-height {
+        margin-bottom: 10rem;
+    }
+}
+
+@media screen and (min-width: 574px) and (max-width: 794px) {
+    .field {
+        width: 35rem;
+    }
+
+    .button {
+        width: 35rem;
+    }
+
+    .login-titolo {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 374px) and (max-width: 794px) {
+    .login-titolo {
+        font-size: 3rem;
+    }
+}
