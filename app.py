@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, url_for, session, redirect
 import mysql.connector
+import sqlite3
+import bcrypt
 
 app = Flask(__name__)
 app.config.from_object('config.Config')
@@ -43,6 +45,36 @@ connection = mysql.connector.connect(host='localhost',
                                      password='')
 cursor = connection.cursor()
 
+def hash_password(password):
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_password
+
+def insert_user(conn, username, password):
+    sql = """INSERT INTO users (username, hashed_password) VALUES (?, ?);"""
+    try:
+        cursor = conn.cursor()
+        hashed_password = hash_password(password)
+        cursor.execute(sql, (username, hashed_password))
+        conn.commit()
+    except sqlite3.Error as e:
+        print(e)
+
+def verify_password(conn, username, password):
+    sql = """SELECT hashed_password FROM users WHERE username = ?;"""
+    try:
+        cursor = conn.cursor()
+        cursor.execute(sql, (username,))
+        row = cursor.fetchone()
+        if row:
+            stored_hashed_password = row[0]
+            return bcrypt.checkpw(password.encode('utf-8'), stored_hashed_password.encode('utf-8'))
+        else:
+            return False
+    except sqlite3.Error as e:
+        print(e)
+        return False
+
 @app.route("/")
 def index():
     reg = request.args.get('reg')
@@ -75,9 +107,11 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        cursor.execute('SELECT * FROM utenti WHERE username = %s AND password = %s',(username, password))
+
+        cursor.execute('SELECT * FROM utenti WHERE username = %s', (username,))
         record = cursor.fetchone()
-        if record:
+
+        if record and bcrypt.checkpw(password.encode('utf-8'), record[2].encode('utf-8')):  # Assumendo che la password hashata sia nel terzo campo
             session['logged'] = True
             session['username'] = record[1]
             return redirect(url_for('home'))
@@ -91,7 +125,11 @@ def register():
         username = request.form['username-reg']
         pwd = request.form['password-reg']
         email = request.form['email']
-        cursor.execute('INSERT INTO utenti (username, password, email) VALUES (%s, %s, %s)', (username, pwd, email))
+
+        # Hashare la password
+        hashed_pwd = bcrypt.hashpw(pwd.encode('utf-8'), bcrypt.gensalt())
+
+        cursor.execute('INSERT INTO utenti (username, password, email) VALUES (%s, %s, %s)', (username, hashed_pwd, email))
         connection.commit()
         reg = 'Registrazione avvenuta con successo!'
 
