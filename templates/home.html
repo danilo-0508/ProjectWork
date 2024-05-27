@@ -56,6 +56,11 @@
                                                                 </svg>Welcome {{username}}!
                                                         </span>
                                                         <ul class="dropdown-menu">
+                                                                {% for user in utenti_ID %}
+                                                                <li><a href="/profilo/{{user.utenti_ID}}"
+                                                                                class="link mx-0 text-decoration-none fs-5 link-nav dropdown-item">Impostazioni</a>
+                                                                </li>
+                                                                {% endfor %}
                                                                 <li><a href="/logout"
                                                                                 class="link mx-0 text-decoration-none fs-5 link-nav dropdown-item">Logout</a>
                                                                 </li>

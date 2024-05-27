@@ -42,7 +42,7 @@ def inserisci_dati(query, params=None):
 connection = mysql.connector.connect(host='localhost',
                                      database='my_podcast',
                                      user='root',
-                                     password='root')
+                                     password='')
 cursor = connection.cursor()
 
 def hash_password(password):
@@ -82,8 +82,9 @@ def index():
 
 @app.route('/home.html')
 def home():
+    utenti = execute_query('SELECT * FROM utenti')
     if 'username' in session:
-        return render_template("home.html", username=session['username'])
+        return render_template("home.html", username=session['username'], utenti=utenti)
     else:
         return render_template("index.html")
 
@@ -143,9 +144,9 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
-@app.route('/podcast_info')
-def info():
-    #podcast = execute_query('SELECT * FROM utenti WHERE utenti_ID = %s')
+@app.route('/podcast_info/<id>')
+def info(id):
+    #podcast = execute_query('SELECT * FROM podcast WHERE podcast_ID = %s')
     return render_template('podcast_info.html', username=session['username'])
 
 @app.route('/recensione', methods=['GET', 'POST'])
@@ -158,6 +159,11 @@ def recensione():
         connection.commit()
         return redirect(url_for('recensione'))
     return render_template('podcast_info.html')
+
+@app.route('/profilo/<id>')
+def profilo(id):
+    utente = ('SELECT * FROM utenti WHERE utenti_ID = %s', (id,))
+    return render_template('profilo.html', utente=utente[0])
 
 if __name__ == '__main__':
     app.run(debug=True)
