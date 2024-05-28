@@ -40,7 +40,7 @@ def inserisci_dati(query, params=None):
     connection.close()
 
 connection = mysql.connector.connect(host='localhost',
-                                     database='my_podcast',
+                                     database='podcastpro',
                                      user='root',
                                      password='root')
 cursor = connection.cursor()
