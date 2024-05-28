@@ -87,18 +87,20 @@
             <div class="row text-center">
 
                 <!--Elenco Podcast-->
+                {% for p in podcast %}
                 <div class="col-lg-4 col-md-6 col-sm-12 my-3">
-                    <a class="text-decoration-none" href="/">
+                    <a class="text-decoration-none" href="#">
                         <div class="d-flex justify-content-center">
                             <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
                                 style="height: 15rem;" alt="slide">
                         </div>
                         <div class="text-center">
                             <p class="testo-bianco">
-                                Titolo</p>
+                                {{p.titolo}}</p>
                         </div>
                     </a>
                 </div>
+                {% endfor %}
 
             </div>
         </div>

@@ -129,17 +129,18 @@
                                         <div class="swiper-wrapper">
                                                 <!-- Slides -->
 
-                                                <!--inizio for qui-->
+                                                {% for categoria in lista_categorie %}
                                                 <div class="swiper-slide">
-                                                        <a class="text-decoration-none" href="#">
+                                                        <a class="text-decoration-none"
+                                                                href="/podcasts/{{categoria.nome_cat}}">
                                                                 <div
                                                                         class="categoria-card d-flex align-items-center justify-content-center">
                                                                         <h3 class="testo-bianco">
-                                                                                categoria</h3>
+                                                                                {{categoria.nome_cat}}</h3>
                                                                 </div>
                                                         </a>
                                                 </div>
-                                                <!--fine for qui-->
+                                                {% endfor %}
                                         </div>
                                 </div>
                                 <div class="text-center"><a class="testo-bianco text-decoration-none link fs-5"

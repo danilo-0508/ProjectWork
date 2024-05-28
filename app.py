@@ -83,7 +83,8 @@ def index():
 @app.route('/home.html')
 def home():
     if 'username' in session:
-        return render_template("home.html", username=session['username'], flag=True, user_id=session['utente_ID'])
+        lista_categorie = execute_query('SELECT nome_cat FROM categorie LIMIT 25')
+        return render_template("home.html", username=session['username'], flag=True, user_id=session['utente_ID'], lista_categorie=lista_categorie)
     else:
         return render_template("index.html")
 
@@ -168,5 +169,17 @@ def profilo(id):
         return render_template('profilo.html', utente=utente[0], session=session)
     else:
         return redirect(url_for('home'))
+
+@app.route('/podcasts/<nome_cat>')
+def categoria(nome_cat):
+    podcast = execute_query("""
+    SELECT podcast.titolo
+    FROM podcast
+    JOIN categorie ON categorie.category_id = podcast.category_id
+    WHERE categorie.nome_cat = %s
+    LIMIT 24""", (nome_cat,))
+    return render_template('podcasts.html', nome_cat=nome_cat, podcast=podcast)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
