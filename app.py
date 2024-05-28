@@ -91,14 +91,14 @@ def home():
 @app.route('/chi-siamo.html')
 def chi_siamo():
     if 'username' in session:
-        return render_template("chi-siamo.html", username=session['username'])
+        return render_template("chi-siamo.html", username=session['username'], flag=True, user_id=session['utente_ID'])
     else:
         return render_template("index.html")
 
 @app.route('/podcasts.html')
 def podcasts():
     if 'username' in session:
-        return render_template("podcasts.html", username=session['username'])
+        return render_template("podcasts.html", username=session['username'], flag=True, user_id=session['utente_ID'])
     else:
         return render_template("index.html")
 
@@ -116,7 +116,7 @@ def login():
             session['logged'] = True
             session['username'] = record[1]
             session['utente_ID'] = record[0]
-            session['is_admin'] = False
+            #session['is_admin'] = False
             return redirect(url_for('home'))
         else:
             msg = 'Username/Password errato. Riprova!'
@@ -169,6 +169,22 @@ def profilo(id):
         return render_template('profilo.html', utente=utente[0], session=session)
     else:
         return redirect(url_for('home'))
+
+
+@app.route('/delete_account', methods=['POST'])
+def delete_account():
+    if session['logged']:
+        id_utente = session['utente_ID']
+
+        cursor.execute('DELETE FROM utenti WHERE utenti_ID = %s', (id_utente,))
+        connection.commit()
+
+        session.pop('logged', None)
+        session.pop('username', None)
+        session.pop('utente_ID', None)
+        return redirect(url_for('login'))
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/podcasts/<nome_cat>')
 def categoria(nome_cat):
