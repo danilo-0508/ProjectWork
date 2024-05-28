@@ -56,15 +56,15 @@
                                                                 </svg>Welcome {{username}}!
                                                         </span>
                                                         <ul class="dropdown-menu">
-                                                                {% for user in utenti_ID %}
-                                                                <li><a href="/profilo/{{user.utenti_ID}}"
+                                                                {% if flag %}
+                                                                <li><a href="/profilo/{{user_id}}"
                                                                                 class="link mx-0 text-decoration-none fs-5 link-nav dropdown-item">Impostazioni</a>
                                                                 </li>
-                                                                {% endfor %}
+
                                                                 <li><a href="/logout"
                                                                                 class="link mx-0 text-decoration-none fs-5 link-nav dropdown-item">Logout</a>
                                                                 </li>
-
+                                                                {% endif %}
                                                         </ul>
                                                 </div>
                                         </li>
@@ -97,83 +97,22 @@
                                         <!-- Additional required wrapper -->
                                         <div class="swiper-wrapper">
                                                 <!-- Slides -->
+
+                                                <!--inizio for qui-->
                                                 <div class="swiper-slide">
                                                         <a class="text-decoration-none" href="/podcast_info"
                                                                 target="_blank">
                                                                 <div class="d-flex justify-content-center">
-                                                                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts125/v4/5b/15/9a/5b159a9a-75ca-68f0-e04d-2fccd903dd8f/mza_8785418837150889604.jpg/600x600bb.jpg"
+                                                                        <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
                                                                                 style="height: 15rem;" alt="slide">
                                                                 </div>
                                                                 <div class="text-center">
                                                                         <p class="testo-bianco">
-                                                                                No Extra Words one person's search for
-                                                                                story</p>
+                                                                                Titolo</p>
                                                                 </div>
                                                         </a>
-
                                                 </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts115/v4/26/ec/12/26ec1299-5fd6-1f5a-ba9f-6ec9f41c2d66/mza_8214753941963736656.png/600x600bb.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Gal Pal Show: Solo female travel, backpacking, bucket
-                                                                        list inspiration, planning a trip, female travel
-                                                                        advice and tips, and o</p>
-                                                        </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Titolo</p>
-                                                        </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Titolo</p>
-                                                        </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Titolo</p>
-                                                        </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Titolo</p>
-                                                        </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Titolo</p>
-                                                        </div>
-                                                </div>
+                                                <!--fine for qui-->
 
                                         </div>
                                         <!-- If we need pagination -->
@@ -189,274 +128,224 @@
                                         <!-- Additional required wrapper -->
                                         <div class="swiper-wrapper">
                                                 <!-- Slides -->
+
+                                                <!--inizio for qui-->
                                                 <div class="swiper-slide">
                                                         <a class="text-decoration-none" href="#">
                                                                 <div
                                                                         class="categoria-card d-flex align-items-center justify-content-center">
                                                                         <h3 class="testo-bianco">
-                                                                                film</h3>
+                                                                                categoria</h3>
                                                                 </div>
                                                         </a>
-
                                                 </div>
-                                                <div class="swiper-slide">
-                                                        <a class="text-decoration-none" href="#">
-                                                                <div
-                                                                        class="categoria-card d-flex align-items-center justify-content-center">
-                                                                        <h3 class="testo-bianco">
-                                                                                spirituality</h3>
-                                                                </div>
-                                                        </a>
-
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <a class="text-decoration-none" href="#">
-                                                                <div
-                                                                        class="categoria-card d-flex align-items-center justify-content-center">
-                                                                        <h3 class="testo-bianco">
-                                                                                christianity</h3>
-                                                                </div>
-                                                        </a>
-
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <a class="text-decoration-none" href="#">
-                                                                <div
-                                                                        class="categoria-card d-flex align-items-center justify-content-center">
-                                                                        <h3 class="testo-bianco">
-                                                                                government</h3>
-                                                                </div>
-                                                        </a>
-
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Titolo</p>
-                                                        </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Titolo</p>
-                                                        </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                        <div class="d-flex justify-content-center">
-                                                                <!---->
-                                                                <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
-                                                                        style="height: 15rem;" alt="slide">
-                                                        </div>
-                                                        <div class="text-center">
-                                                                <p>Titolo</p>
-                                                        </div>
-                                                </div>
+                                                <!--fine for qui-->
                                         </div>
                                 </div>
-                        </div>
-                        <div class="text-center"><a class="testo-bianco text-decoration-none link fs-5"
-                                        href="/podcasts.html">Vedi tutti i Podcast!</a></div>
-                </div>
-        </div>
-        <!--NEWSLETTER-->
-        <img class="top-footer" src="{{ url_for('static', filename='./img/bg-dark-section-top-desktop.svg') }}"
-                alt="footer-top" style="width: 100%; background-color: black;">
-        <div class="container-fluid bg-dark d-flex justify-content-center align-items-center">
-                <div class="row">
-                        <div class="col-lg-12">
-                                <h1 class="testo-bianco text-center mt-2">Iscriviti alla nostra Newsletter!</h1>
-                                <div id="form-box" class="box m-4 mb-5">
-                                        <div class="row">
-                                                <div class="col-md-6 p-5">
-                                                        <h3 class="testo-bianco">Resta Aggiornato!</h3>
-                                                        <p class="testo-bianco mb-4">Ti avviseremo ogni volta che uscirà
-                                                                un nuovo Podcast.</p>
-
-                                                        <form id="form" onsubmit="input(event)">
-                                                                <div class="textfield testo-bianco">
-                                                                        <label for="mail" class="email"><b>Email
-                                                                                </b>
-                                                                        </label>
-                                                                        <span id="emailError"
-                                                                                style="display: none; color: red;">Inserire
-                                                                                un formato E-Mail valido</span>
-                                                                        <input id="mail" class="field mb-4" type="text"
-                                                                                placeholder="email@company.com"><br>
-                                                                        <input class="button" type="submit"
-                                                                                value="Iscriviti">
-                                                                </div>
-                                                        </form>
-                                                </div>
-                                                <div class="col-md-6">
-                                                        <img src="https://static.vecteezy.com/system/resources/thumbnails/002/248/558/small/podcast-neon-sign-bright-signboard-light-banner-podcast-logo-neon-emblem-and-label-vector.jpg"
-                                                                alt="illustration" class="img-fluid d-none d-md-block">
-                                                        <img src="https://static.vecteezy.com/system/resources/thumbnails/002/248/558/small/podcast-neon-sign-bright-signboard-light-banner-podcast-logo-neon-emblem-and-label-vector.jpg"
-                                                                alt="illustration" class="img-fluid d-md-none">
-                                                </div>
-                                        </div>
-                                </div>
-                                <div id="success-box" class="success m-4">
-                                        <img class="mb-2"
-                                                src="{{ url_for('static', filename='./img/icon-success.svg') }}"
-                                                alt="success">
-                                        <h3 class="testo-bianco mb-2">Sei iscritto alla Newsletter!</h3>
-                                        <p class="testo-bianco mb-3">Un'email di conferma è stata inviata, aprila e
-                                                clicca <br> sul pulsante per confermare l'iscrizione.</p>
-                                        <button onclick="dismiss()" class="button ms-5">Chiudi</button>
-                                </div>
+                                <div class="text-center"><a class="testo-bianco text-decoration-none link fs-5"
+                                                href="/podcasts.html">Vedi tutti i Podcast!</a></div>
                         </div>
                 </div>
-        </div>
-        <!--FOOTER-->
-        <img class="bg-dark top-footer" src="{{ url_for('static', filename='./img/bg-footer-top-desktop.svg') }}"
-                alt="footer-top" style="width: 100%;">
-        <footer id="footer-recensioni">
-                <div class="container-fluid" style="background-color: #C60000;">
+                <!--NEWSLETTER-->
+                <img class="top-footer" src="{{ url_for('static', filename='./img/bg-dark-section-top-desktop.svg') }}"
+                        alt="footer-top" style="width: 100%; background-color: black;">
+                <div class="container-fluid bg-dark d-flex justify-content-center align-items-center">
                         <div class="row">
                                 <div class="col-lg-12">
-                                        <h3 class="testo-bianco text-center mt-2" style="color: #690000;">DataRangers
-                                        </h3>
-                                        <div class="d-flex justify-content-center my-3">
-                                                <div class="testo-bianco mx-5">
-                                                        <p><b>PodcastRangers</b></p>
-                                                </div>
+                                        <h1 class="testo-bianco text-center mt-2">Iscriviti alla nostra Newsletter!</h1>
+                                        <div id="form-box" class="box m-4 mb-5">
+                                                <div class="row">
+                                                        <div class="col-md-6 p-5">
+                                                                <h3 class="testo-bianco">Resta Aggiornato!</h3>
+                                                                <p class="testo-bianco mb-4">Ti avviseremo ogni volta
+                                                                        che uscirà
+                                                                        un nuovo Podcast.</p>
 
-                                                <div class="testo-bianco">
-                                                        <p class="mb-0">DAITA 13</p>
-                                                        <p>Gruppo 2</p>
-                                                </div>
-
-                                                <div class="testo-bianco mx-5">
-                                                        <p class="mb-0"><b><svg xmlns="http://www.w3.org/2000/svg"
-                                                                                width="16" height="16"
-                                                                                fill="currentColor"
-                                                                                class="bi bi-telephone-outbound-fill"
-                                                                                viewBox="0 0 16 16">
-                                                                                <path fill-rule="evenodd"
-                                                                                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5" />
-                                                                        </svg> Tel:</b> +39 330 0000000</p>
-                                                        <p><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                        height="16" fill="currentColor"
-                                                                        class="bi bi-envelope-at-fill"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path
-                                                                                d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
-                                                                        <path
-                                                                                d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
-                                                                </svg><b> Mail:</b> gruppo2@gmail.com</p>
+                                                                <form id="form" onsubmit="input(event)">
+                                                                        <div class="textfield testo-bianco">
+                                                                                <label for="mail" class="email"><b>Email
+                                                                                        </b>
+                                                                                </label>
+                                                                                <span id="emailError"
+                                                                                        style="display: none; color: red;">Inserire
+                                                                                        un formato E-Mail valido</span>
+                                                                                <input id="mail" class="field mb-4"
+                                                                                        type="text"
+                                                                                        placeholder="email@company.com"><br>
+                                                                                <input class="button" type="submit"
+                                                                                        value="Iscriviti">
+                                                                        </div>
+                                                                </form>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/248/558/small/podcast-neon-sign-bright-signboard-light-banner-podcast-logo-neon-emblem-and-label-vector.jpg"
+                                                                        alt="illustration"
+                                                                        class="img-fluid d-none d-md-block">
+                                                                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/248/558/small/podcast-neon-sign-bright-signboard-light-banner-podcast-logo-neon-emblem-and-label-vector.jpg"
+                                                                        alt="illustration" class="img-fluid d-md-none">
+                                                        </div>
                                                 </div>
                                         </div>
-                                </div>
-                                <div class="col-lg-12">
-                                        <div class="d-flex justify-content-center mb-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                                        fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
-                                                        <path
-                                                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                                        fill="white" class="bi bi-instagram mx-3" viewBox="0 0 16 16">
-                                                        <path
-                                                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                                        fill="white" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                                                        <path
-                                                                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                                        fill="white" class="bi bi-youtube ms-3" viewBox="0 0 16 16">
-                                                        <path
-                                                                d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
-                                                </svg>
+                                        <div id="success-box" class="success m-4">
+                                                <img class="mb-2"
+                                                        src="{{ url_for('static', filename='./img/icon-success.svg') }}"
+                                                        alt="success">
+                                                <h3 class="testo-bianco mb-2">Sei iscritto alla Newsletter!</h3>
+                                                <p class="testo-bianco mb-3">Un'email di conferma è stata inviata,
+                                                        aprila e
+                                                        clicca <br> sul pulsante per confermare l'iscrizione.</p>
+                                                <button onclick="dismiss()" class="button ms-5">Chiudi</button>
                                         </div>
-                                        <div class="d-flex justify-content-center mb-3">
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190028.35442656942!2d12.371191233888956!3d41.91020879186577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6196f9928ebb%3A0xb90f770693656e38!2sRoma%20RM!5e0!3m2!1sit!2sit!4v1716590174392!5m2!1sit!2sit"
-                                                        width="300" height="300" style="border:0;" allowfullscreen=""
-                                                        loading="lazy"
-                                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-
                                 </div>
                         </div>
                 </div>
-        </footer>
+                <!--FOOTER-->
+                <img class="bg-dark top-footer"
+                        src="{{ url_for('static', filename='./img/bg-footer-top-desktop.svg') }}" alt="footer-top"
+                        style="width: 100%;">
+                <footer id="footer-recensioni">
+                        <div class="container-fluid" style="background-color: #C60000;">
+                                <div class="row">
+                                        <div class="col-lg-12">
+                                                <h3 class="testo-bianco text-center mt-2" style="color: #690000;">
+                                                        DataRangers
+                                                </h3>
+                                                <div class="d-flex justify-content-center my-3">
+                                                        <div class="testo-bianco mx-5">
+                                                                <p><b>PodcastRangers</b></p>
+                                                        </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-                crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="{{url_for('static', filename='main.js')}}"></script>
-        <script>
-                const swiper = new Swiper('.swiper', {
-                        autoplay: {
-                                delay: 1000,
-                        },
-                        direction: 'horizontal',
-                        loop: true,
-                        slidesPerView: 1,
-                        speed: 400,
-                        spaceBetween: 100,
-                        // Navigation arrows
-                        navigation: {
-                                nextEl: '.swiper-button-next',
-                                prevEl: '.swiper-button-prev',
-                        },
-                });
+                                                        <div class="testo-bianco">
+                                                                <p class="mb-0">DAITA 13</p>
+                                                                <p>Gruppo 2</p>
+                                                        </div>
 
-                const swiper2 = new Swiper('.swiper-brand', {
-                        // Optional parameters
-                        direction: 'horizontal',
-                        loop: false,
+                                                        <div class="testo-bianco mx-5">
+                                                                <p class="mb-0"><b><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="16" height="16"
+                                                                                        fill="currentColor"
+                                                                                        class="bi bi-telephone-outbound-fill"
+                                                                                        viewBox="0 0 16 16">
+                                                                                        <path fill-rule="evenodd"
+                                                                                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5" />
+                                                                                </svg> Tel:</b> +39 330 0000000</p>
+                                                                <p><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                                height="16" fill="currentColor"
+                                                                                class="bi bi-envelope-at-fill"
+                                                                                viewBox="0 0 16 16">
+                                                                                <path
+                                                                                        d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
+                                                                                <path
+                                                                                        d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
+                                                                        </svg><b> Mail:</b> gruppo2@gmail.com</p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                                <div class="d-flex justify-content-center mb-3">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                                                fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
+                                                                <path
+                                                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                                                fill="white" class="bi bi-instagram mx-3"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                                                fill="white" class="bi bi-twitter-x"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                                                fill="white" class="bi bi-youtube ms-3"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                        d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                                                        </svg>
+                                                </div>
+                                                <div class="d-flex justify-content-center mb-3">
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190028.35442656942!2d12.371191233888956!3d41.91020879186577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6196f9928ebb%3A0xb90f770693656e38!2sRoma%20RM!5e0!3m2!1sit!2sit!4v1716590174392!5m2!1sit!2sit"
+                                                                width="300" height="300" style="border:0;"
+                                                                allowfullscreen="" loading="lazy"
+                                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                </div>
+
+                                        </div>
+                                </div>
+                        </div>
+                </footer>
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                        crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+                <script src="{{url_for('static', filename='main.js')}}"></script>
+                <script>
+                        const swiper = new Swiper('.swiper', {
+                                autoplay: {
+                                        delay: 1000,
+                                },
+                                direction: 'horizontal',
+                                loop: true,
+                                slidesPerView: 1,
+                                speed: 400,
+                                spaceBetween: 100,
+                                // Navigation arrows
+                                navigation: {
+                                        nextEl: '.swiper-button-next',
+                                        prevEl: '.swiper-button-prev',
+                                },
+                        });
+
+                        const swiper2 = new Swiper('.swiper-brand', {
+                                // Optional parameters
+                                direction: 'horizontal',
+                                loop: false,
 
 
-                        // Responsive breakpoints
-                        breakpoints: {
-                                // when window width is >= 320px
-                                320: {
-                                        slidesPerView: 1,
+                                // Responsive breakpoints
+                                breakpoints: {
+                                        // when window width is >= 320px
+                                        320: {
+                                                slidesPerView: 1,
 
+                                        },
+
+                                        574: {
+                                                slidesPerView: 2,
+                                        },
+
+                                        // when window width is >= 640px
+                                        992: {
+                                                slidesPerView: 3,
+
+                                        },
+
+                                        1201: {
+                                                slidesPerView: 4,
+                                        },
+
+                                        1400: {
+                                                slidesPerView: 5
+                                        }
                                 },
 
-                                574: {
-                                        slidesPerView: 2,
+                                // Navigation arrows
+                                navigation: {
+                                        nextEl: '.swiper-button-next',
+                                        prevEl: '.swiper-button-prev',
                                 },
 
-                                // when window width is >= 640px
-                                992: {
-                                        slidesPerView: 3,
-
+                                // And if we need scrollbar
+                                scrollbar: {
+                                        el: '.swiper-scrollbar',
                                 },
-
-                                1201: {
-                                        slidesPerView: 4,
-                                },
-
-                                1400: {
-                                        slidesPerView: 5
-                                }
-                        },
-
-                        // Navigation arrows
-                        navigation: {
-                                nextEl: '.swiper-button-next',
-                                prevEl: '.swiper-button-prev',
-                        },
-
-                        // And if we need scrollbar
-                        scrollbar: {
-                                el: '.swiper-scrollbar',
-                        },
-                });
-        </script>
+                        });
+                </script>
 </body>
 
 </html>

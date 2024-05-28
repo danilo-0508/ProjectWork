@@ -42,7 +42,7 @@ def inserisci_dati(query, params=None):
 connection = mysql.connector.connect(host='localhost',
                                      database='my_podcast',
                                      user='root',
-                                     password='')
+                                     password='root')
 cursor = connection.cursor()
 
 def hash_password(password):
@@ -82,9 +82,8 @@ def index():
 
 @app.route('/home.html')
 def home():
-    utenti = execute_query('SELECT * FROM utenti')
     if 'username' in session:
-        return render_template("home.html", username=session['username'], utenti=utenti)
+        return render_template("home.html", username=session['username'], flag=True, user_id=session['utente_ID'])
     else:
         return render_template("index.html")
 
@@ -115,6 +114,8 @@ def login():
         if record and bcrypt.checkpw(password.encode('utf-8'), record[2].encode('utf-8')):  # Assumendo che la password hashata sia nel terzo campo
             session['logged'] = True
             session['username'] = record[1]
+            session['utente_ID'] = record[0]
+            session['is_admin'] = False
             return redirect(url_for('home'))
         else:
             msg = 'Username/Password errato. Riprova!'
@@ -162,8 +163,10 @@ def recensione():
 
 @app.route('/profilo/<id>')
 def profilo(id):
-    utente = ('SELECT * FROM utenti WHERE utenti_ID = %s', (id,))
-    return render_template('profilo.html', utente=utente[0])
-
+    utente = execute_query('SELECT * FROM utenti WHERE utenti_ID = %s', (id,))
+    if session['utente_ID'] == int(id):
+        return render_template('profilo.html', utente=utente[0], session=session)
+    else:
+        return redirect(url_for('home'))
 if __name__ == '__main__':
     app.run(debug=True)
