@@ -98,21 +98,21 @@
                                         <div class="swiper-wrapper">
                                                 <!-- Slides -->
 
-                                                <!--inizio for qui-->
+                                                {% for popolare in lista_popolari %}
                                                 <div class="swiper-slide">
-                                                        <a class="text-decoration-none" href="/podcast_info"
-                                                                target="_blank">
+                                                        <a class="text-decoration-none"
+                                                                href="/podcast_info/{{popolare.info}}" target="_blank">
                                                                 <div class="d-flex justify-content-center">
                                                                         <img src="https://marketplace.canva.com/EAFIP4_9nrI/1/0/1600w/canva-black-neon-welcome-bank-podcast-cover-zBty84ekuGw.jpg"
                                                                                 style="height: 15rem;" alt="slide">
                                                                 </div>
                                                                 <div class="text-center">
                                                                         <p class="testo-bianco">
-                                                                                Titolo</p>
+                                                                                {{popolare.titolo}}</p>
                                                                 </div>
                                                         </a>
                                                 </div>
-                                                <!--fine for qui-->
+                                                {% endfor %}
 
                                         </div>
                                         <!-- If we need pagination -->
@@ -128,7 +128,6 @@
                                         <!-- Additional required wrapper -->
                                         <div class="swiper-wrapper">
                                                 <!-- Slides -->
-
                                                 {% for categoria in lista_categorie %}
                                                 <div class="swiper-slide">
                                                         <a class="text-decoration-none"

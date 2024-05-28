@@ -83,8 +83,9 @@ def index():
 @app.route('/home.html')
 def home():
     if 'username' in session:
+        lista_popolari = execute_query('SELECT titolo FROM podcast LIMIT 10')
         lista_categorie = execute_query('SELECT nome_cat FROM categorie LIMIT 25')
-        return render_template("home.html", username=session['username'], flag=True, user_id=session['utente_ID'], lista_categorie=lista_categorie)
+        return render_template("home.html", username=session['username'], flag=True, user_id=session['utente_ID'], lista_categorie=lista_categorie, lista_popolari=lista_popolari)
     else:
         return render_template("index.html")
 
@@ -146,10 +147,10 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
-@app.route('/podcast_info/<id>')
-def info(id):
-    #podcast = execute_query('SELECT * FROM podcast WHERE podcast_ID = %s')
-    return render_template('podcast_info.html', username=session['username'])
+@app.route('/podcast_info/<info>')
+def info(info):
+    dettagli = execute_query('SELECT podcast_id FROM podcast WHERE podcast_id = %s', (info,))
+    return render_template('podcast_info.html', username=session['username'], dettagli=dettagli)
 
 @app.route('/recensione', methods=['GET', 'POST'])
 def recensione():
@@ -194,7 +195,7 @@ def categoria(nome_cat):
     JOIN categorie ON categorie.category_id = podcast.category_id
     WHERE categorie.nome_cat = %s
     LIMIT 24""", (nome_cat,))
-    return render_template('podcasts.html', nome_cat=nome_cat, podcast=podcast)
+    return render_template('podcasts.html', nome_cat=nome_cat, podcast=podcast, username=session['username'], flag=True, user_id=session['utente_ID'])
 
 
 if __name__ == '__main__':

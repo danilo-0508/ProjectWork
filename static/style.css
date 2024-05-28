@@ -176,10 +176,14 @@ ul li {
 }
 
 .categoria-card {
-    background-image: linear-gradient(to right, hsl(295, 40%, 50%), hsl(295, 100%, 75%));
+    background-image: linear-gradient(to right, hsl(295, 40%, 28%), hsl(295, 100%, 75%));
     border-radius: 15px;
     height: 10rem;
     width: 90%;
+}
+
+.categoria-card:hover {
+    background-image: linear-gradient(to right, hsl(0, 100%, 26%), hsl(0, 100%, 75%));
 }
 
 /*PODCAST INFO*/
