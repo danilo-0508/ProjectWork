@@ -83,7 +83,13 @@ def index():
 @app.route('/home.html')
 def home():
     if 'username' in session:
-        lista_popolari = execute_query('SELECT titolo FROM podcast LIMIT 10')
+        lista_popolari = execute_query("""
+        SELECT podcast.titolo, dettagli.img_url, podcast.podcast_id
+        FROM podcast
+        JOIN dettagli ON dettagli.podcast_id = podcast.podcast_id
+        ORDER BY rating_count DESC
+        LIMIT 10
+        """)
         lista_categorie = execute_query('SELECT nome_cat FROM categorie LIMIT 25')
         return render_template("home.html", username=session['username'], flag=True, user_id=session['utente_ID'], lista_categorie=lista_categorie, lista_popolari=lista_popolari)
     else:
@@ -149,8 +155,19 @@ def logout():
 
 @app.route('/podcast_info/<info>')
 def info(info):
+    titolo_p = execute_query('SELECT titolo FROM podcast WHERE podcast_id = %s', (info,))
     dettagli = execute_query('SELECT podcast_id FROM podcast WHERE podcast_id = %s', (info,))
-    return render_template('podcast_info.html', username=session['username'], dettagli=dettagli)
+    recensione = execute_query('SELECT * FROM review WHERE podcast_id = %s ORDER BY rating DESC LIMIT 5', (info,))
+    podcast = execute_query("""
+    SELECT dettagli.img_url, podcast.titolo, dettagli.descrizione, dettagli.rating_count, autori.name, dettagli.URL
+    FROM podcast
+    JOIN dettagli ON podcast.podcast_id = dettagli.podcast_id
+    JOIN autori_podcast ON autori_podcast.podcast_id = podcast.podcast_id
+    JOIN autori ON autori_podcast.autore_id = autori.autore_id
+    WHERE podcast.podcast_id = %s
+    """, (info,))
+    print(podcast[0])
+    return render_template('podcast_info.html', username=session['username'], dettagli=dettagli, titolo_p=titolo_p[0], recensione=recensione, podcast=podcast[0])
 
 @app.route('/recensione', methods=['GET', 'POST'])
 def recensione():
@@ -158,7 +175,9 @@ def recensione():
         titolo = request.form['titolo-recensione']
         recensione = request.form['recensione']
         rating = request.form['rating']
-        cursor.execute('INSERT INTO recensioni_sito (titolo, testo, voto) VALUES (%s, %s, %s)', (titolo, recensione, rating))
+        # podcast_id = request.form['podcast_id']
+        # utente_id = request.form['utente_id']
+        cursor.execute('INSERT INTO recensioni_sito (titolo_recensione, testo, voto) VALUES (%s, %s, %s)', (titolo, recensione, rating,))
         connection.commit()
         return redirect(url_for('recensione'))
     return render_template('podcast_info.html')
@@ -190,9 +209,10 @@ def delete_account():
 @app.route('/podcasts/<nome_cat>')
 def categoria(nome_cat):
     podcast = execute_query("""
-    SELECT podcast.titolo
+    SELECT podcast.titolo, podcast.podcast_id, dettagli.img_url
     FROM podcast
     JOIN categorie ON categorie.category_id = podcast.category_id
+    JOIN dettagli ON dettagli.podcast_id = podcast.podcast_id
     WHERE categorie.nome_cat = %s
     LIMIT 24""", (nome_cat,))
     return render_template('podcasts.html', nome_cat=nome_cat, podcast=podcast, username=session['username'], flag=True, user_id=session['utente_ID'])

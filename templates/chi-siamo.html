@@ -68,12 +68,12 @@
         style="background-image: url(https://wavve.co/wp-content/uploads/2023/09/hiring_a_podcast_team_03.jpg); background-size: cover; background-repeat: no-repeat; height: 70vh;">
         <p class="titolo">Il nostro team</p>
     </div>
-    <div id="section2" class="container-fluid testo-bianco" style="background-color: rgb(0, 0, 0);">
+    <div id="section2" class="container-fluid bg-dark testo-bianco">
         <div class="container">
             <div class="row text-center">
 
                 <!--MEMBRI TEAM-->
-                <div class="col-lg-4 col-md-6 col-sm-12 my-3">
+                <div class="col-lg-4 col-md-6 col-sm-12 my-3 mt-5">
                     <a href="https://www.linkedin.com/in/elisa-de-angelis-47192430a/" target="_blank"
                         class="text-decoration-none testo-bianco"><img class="member"
                             src="https://www.shutterstock.com/shutterstock/photos/535853263/display_1500/stock-vector-profile-photo-vector-placeholder-pic-male-person-default-profile-gray-photo-picture-avatar-535853263.jpg"
@@ -81,7 +81,7 @@
                         <div class="ms-3">Elisa De Angelis</div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 my-3">
+                <div class="col-lg-4 col-md-6 col-sm-12 my-3 mt-5">
                     <a href="https://www.linkedin.com/in/simone-di-sante-9b417b1b2/" target="_blank"
                         class="text-decoration-none testo-bianco"><img class="member"
                             src="https://media.licdn.com/dms/image/D4D03AQHALned3B4ooQ/profile-displayphoto-shrink_800_800/0/1716746396248?e=1722470400&v=beta&t=88sesvTXGijwj8M_nsIS_97SGI7x4TiUBzkleVCJtkg"
@@ -89,7 +89,7 @@
                         <div class="ms-3">Simone Di Sante</div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 my-3">
+                <div class="col-lg-4 col-md-6 col-sm-12 my-3 mt-5">
                     <a href="https://www.linkedin.com/in/fsaveriomessina/" target="_blank"
                         class="text-decoration-none testo-bianco"><img class="member"
                             src="https://www.shutterstock.com/shutterstock/photos/535853263/display_1500/stock-vector-profile-photo-vector-placeholder-pic-male-person-default-profile-gray-photo-picture-avatar-535853263.jpg"
@@ -125,8 +125,30 @@
 
             </div>
         </div>
-    </div>
 
+
+    </div>
+    <img class="top-footer" src="{{ url_for('static', filename='./img/bg-black-section-top-desktop.svg') }}"
+        alt="footer-top" style="width: 100%; background-color: #212529;">
+    <div class="container-fluid" style="background-color: #000;">
+        <div class="row">
+            <h1 class="testo-bianco mb-5 text-center">I nostri risultati:</h1>
+            <div class="col-lg-6 col-md-12 mb-5">
+                <p class="testo-bianco">Le parole più utilizzate:</p>
+                <iframe title="wordcloud" width="450" height="600"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiMWEyYzE0YmYtYzZlZi00Mjc1LWEzNzAtMGI2YjY5MWQ4YmJkIiwidCI6ImM5NDI0M2ViLTZmMGUtNDU2Ni1hMjk2LWI1ZGZjOWQyNTczYiIsImMiOjh9"
+                    frameborder="0" allowFullScreen="true" style="width: 100%;"></iframe>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <p class="testo-bianco">Le parole più utilizzate:</p>
+                <iframe title="wordcloud" width="450" height="600"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiMWEyYzE0YmYtYzZlZi00Mjc1LWEzNzAtMGI2YjY5MWQ4YmJkIiwidCI6ImM5NDI0M2ViLTZmMGUtNDU2Ni1hMjk2LWI1ZGZjOWQyNTczYiIsImMiOjh9"
+                    frameborder="0" allowFullScreen="true" style="width: 100%;"></iframe>
+            </div>
+
+        </div>
+
+    </div>
 
     <img class="top-footer" src="{{ url_for('static', filename='./img/bg-footer-top-desktop.svg') }}" alt="footer-top"
         style="width: 100%; background-color: rgb(0, 0, 0);">
