@@ -37,21 +37,21 @@ CREATE TABLE dettagli (
 
 create_utenti_table = """
 CREATE TABLE utenti (
-  utente_id INT PRIMARY KEY,
-  user_name VARCHAR(150),
+  utentI_ID INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(150),
   hashed_password TEXT,
-  e_mail VARCHAR (200)
+  email VARCHAR (200)
 );
 """
 
 create_recensioni_sito_table = """
 CREATE TABLE recensioni_sito (
-  recensione_id INT PRIMARY KEY,
+  recensione_id INT AUTO_INCREMENT PRIMARY KEY,
   titolo_recensione VARCHAR(150),
   testo VARCHAR(200),
   voto INT,
   podcast_id VARCHAR(150),
-  utente_id INT
+  utenti_id INT
 );
 """
 create_autori_table = """
@@ -99,8 +99,8 @@ ADD FOREIGN KEY(podcast_id)
 REFERENCES podcast(podcast_id)
 ON DELETE SET NULL
 ON UPDATE RESTRICT,
-ADD FOREIGN KEY(utente_id)
-REFERENCES utenti(utente_id)
+ADD FOREIGN KEY(utenti_ID)
+REFERENCES utenti(utenti_ID)
 ON DELETE SET NULL
 ;
 """
