@@ -5,10 +5,10 @@ from tqdm import tqdm
 
 
 DB_NAME = "PodcastPro"
-connection = create_server_connection("localhost", "root", "root")
-execute_query(connection, f"DROP database {DB_NAME}")
+connection = create_server_connection("localhost", "root", "Password1234!")
+#manca una execute_query qua perchè se runno la runno col il drop non va
 create_database(connection,DB_NAME)
-connection = create_db_connection("localhost", "root","root", DB_NAME)
+connection = create_db_connection("localhost", "root","Password1234!", DB_NAME)
 
 # esecuzione create table
 execute_query(connection, create_review_table)
@@ -33,4 +33,4 @@ inserimento_dati(connection, query_categorie, "categories.csv")
 inserimento_dati(connection, query_podcast, "podcast.csv")
 inserimento_dati(connection,query_autori_podcast,"authors_podcast.csv")
 inserimento_review(connection,"reviews.csv")
-
+inserimento_dati(connection,query_dettagli, "dettagli_podcast.csv")

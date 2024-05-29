@@ -25,21 +25,20 @@ CREATE TABLE podcast (
 
 create_dettagli_table = """
 CREATE TABLE dettagli (
-  autore VARCHAR(100),
-  descrizione VARCHAR(60),
-  avg_rating FLOAT,
+  podcast_id VARCHAR(150) PRIMARY KEY,
+  URL VARCHAR (5000),
+  descrizione TEXT,
+  avg_rating VARCHAR(500),
   rating_count INT,
-  URL VARCHAR(100),
-  podcast_id VARCHAR(150),
-  img_url VARCHAR(100)
+  img_url VARCHAR(5000)
 );
 """
 
 create_utenti_table = """
 CREATE TABLE utenti (
-  utentI_ID INT AUTO_INCREMENT PRIMARY KEY,
+  utenti_ID INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(150),
-  hashed_password TEXT,
+  password TEXT,
   email VARCHAR (200)
 );
 """
@@ -88,9 +87,7 @@ ON UPDATE RESTRICT;
 alter_dettagli = """
 ALTER TABLE dettagli
 ADD FOREIGN KEY(podcast_id)
-REFERENCES podcast(podcast_id)
-ON DELETE SET NULL
-ON UPDATE RESTRICT;
+REFERENCES podcast(podcast_id);
 """
 
 alter_recensioni_sito = """
@@ -121,3 +118,4 @@ query_podcast = "INSERT INTO podcast VALUES (%s,%s,%s)"
 query_autori_podcast = "INSERT INTO autori_podcast VALUES (%s,%s)"
 query_categorie = "INSERT INTO categorie VALUES (%s,%s)"
 query_reviews = "INSERT INTO review (podcast_id,titolo,contenuto,rating) VALUES (%s,%s,%s,%s)"
+query_dettagli = "INSERT INTO dettagli VALUES (%s,%s,%s,%s,%s,%s)"
