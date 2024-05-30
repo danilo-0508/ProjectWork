@@ -5,10 +5,10 @@ from tqdm import tqdm
 
 
 DB_NAME = "PodcastPro"
-connection = create_server_connection("localhost", "root", "Password1234!")
+connection = create_server_connection("localhost", "root", "root")
 # execute_query(connection, f'Create {DB_NAME}')
 create_database(connection,DB_NAME)
-connection = create_db_connection("localhost", "root","Password1234!", DB_NAME)
+connection = create_db_connection("localhost", "root","root", DB_NAME)
 
 # esecuzione create tables
 execute_query(connection, create_podcast_table)

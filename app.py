@@ -42,7 +42,7 @@ def inserisci_dati(query, params=None):
 connection = mysql.connector.connect(host='localhost',
                                      database='podcastpro',
                                      user='root',
-                                     password='Password1234!')
+                                     password='root')
 cursor = connection.cursor()
 
 def hash_password(password):
@@ -159,14 +159,20 @@ def info(info):
     dettagli = execute_query('SELECT podcast_id FROM podcast WHERE podcast_id = %s', (info,))
     recensione = execute_query('SELECT * FROM review WHERE podcast_id = %s ORDER BY rating DESC LIMIT 5', (info,))
     podcast = execute_query("""
-    SELECT dettagli.img_url, podcast.titolo, dettagli.descrizione, dettagli.rating_count, autori.name, dettagli.URL
+    SELECT dettagli.img_url, podcast.podcast_id, podcast.titolo, dettagli.descrizione, dettagli.rating_count, autori.name, dettagli.URL
     FROM podcast
     JOIN dettagli ON podcast.podcast_id = dettagli.podcast_id
     JOIN autori_podcast ON autori_podcast.podcast_id = podcast.podcast_id
     JOIN autori ON autori_podcast.autore_id = autori.autore_id
     WHERE podcast.podcast_id = %s
     """, (info,))
-    return render_template('podcast_info.html', username=session['username'], dettagli=dettagli, titolo_p=titolo_p[0], recensione=recensione, podcast=podcast[0])
+    recensioni_utenti = execute_query("""
+    SELECT username, titolo_recensione, testo, voto, podcast_id
+    FROM recensioni_sito
+    JOIN utenti ON utenti.utentI_ID = recensioni_sito.utenti_id
+    WHERE recensioni_sito.podcast_id = %s
+    """, (info,))
+    return render_template('podcast_info.html', utente_ID=session['utente_ID'], recensioni_utenti=recensioni_utenti, username=session['username'], dettagli=dettagli, titolo_p=titolo_p[0], recensione=recensione, podcast=podcast[0])
 
 @app.route('/recensione', methods=['GET', 'POST'])
 def recensione():
@@ -174,16 +180,16 @@ def recensione():
         titolo = request.form['titolo-recensione']
         recensione = request.form['recensione']
         rating = request.form['rating']
-        podcast_id = request.form.get('podcast_id')
+        podcast_id = request.form['podcast_id']
         print(podcast_id)
 
-        utente_id = session.get('utenti_id')
+        utente_id = request.form['utente_ID']
         print(utente_id)
 
         cursor.execute('INSERT INTO recensioni_sito (titolo_recensione, testo, voto, podcast_id, utenti_id) VALUES (%s, %s, %s, %s, %s)', (titolo, recensione, rating, podcast_id, utente_id,))
         connection.commit()
-        return redirect(url_for('recensione'))
-    return render_template('podcast_info.html', username=session['username'])
+        return redirect(url_for('info', info=podcast_id))
+    return redirect(url_for('home'))
 
 @app.route('/profilo/<id>')
 def profilo(id):
