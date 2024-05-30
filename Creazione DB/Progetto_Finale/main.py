@@ -19,7 +19,7 @@ execute_query(connection, create_utenti_table)
 execute_query(connection, create_recensioni_sito_table)
 execute_query(connection, create_autori_table)
 execute_query(connection, create_autori_podcast_table)
-
+#commento
 # esecuzione alter table
 execute_query(connection,alter_podcast)
 execute_query(connection, alter_review)
