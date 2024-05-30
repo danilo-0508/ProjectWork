@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 DB_NAME = "PodcastPro"
 connection = create_server_connection("localhost", "root", "Password1234!")
-#manca una execute_query qua perchè se runno la runno col il drop non va
+execute_query(connection, f' database {DB_NAME}')# drop la prima volta per sostituire in automatico i valori nel DB
 create_database(connection,DB_NAME)
 connection = create_db_connection("localhost", "root","Password1234!", DB_NAME)
 
@@ -33,4 +33,4 @@ inserimento_dati(connection, query_categorie, "categories.csv")
 inserimento_dati(connection, query_podcast, "podcast.csv")
 inserimento_dati(connection,query_autori_podcast,"authors_podcast.csv")
 inserimento_review(connection,"reviews.csv")
-inserimento_dati(connection,query_dettagli, "dettagli_podcast.csv")
+inserimento_dati(connection,query_dettagli, "df_dettagli_podcast_finale(1).csv")

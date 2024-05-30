@@ -50,7 +50,7 @@ CREATE TABLE recensioni_sito (
   testo VARCHAR(200),
   voto INT,
   podcast_id VARCHAR(150),
-  utenti_id INT
+  utenti_ID INT
 );
 """
 create_autori_table = """
