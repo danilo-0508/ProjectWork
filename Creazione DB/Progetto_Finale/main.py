@@ -6,12 +6,11 @@ from tqdm import tqdm
 
 DB_NAME = "PodcastPro"
 connection = create_server_connection("localhost", "root", "Password1234!")
-#manca una execute_query qua perchè se runno la runno col il drop non va
+# execute_query(connection, f'Create {DB_NAME}')
 create_database(connection,DB_NAME)
 connection = create_db_connection("localhost", "root","Password1234!", DB_NAME)
 
-# esecuzione create table
-execute_query(connection, create_review_table)
+# esecuzione create tables
 execute_query(connection, create_podcast_table)
 execute_query(connection, create_dettagli_table)
 execute_query(connection, create_categorie_table)
@@ -19,7 +18,7 @@ execute_query(connection, create_utenti_table)
 execute_query(connection, create_recensioni_sito_table)
 execute_query(connection, create_autori_table)
 execute_query(connection, create_autori_podcast_table)
-
+execute_query(connection, create_review_table)
 # esecuzione alter table
 execute_query(connection,alter_podcast)
 execute_query(connection, alter_review)

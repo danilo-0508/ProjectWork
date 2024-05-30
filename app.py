@@ -42,7 +42,7 @@ def inserisci_dati(query, params=None):
 connection = mysql.connector.connect(host='localhost',
                                      database='podcastpro',
                                      user='root',
-                                     password='root')
+                                     password='Password1234!')
 cursor = connection.cursor()
 
 def hash_password(password):
