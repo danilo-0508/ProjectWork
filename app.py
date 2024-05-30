@@ -166,7 +166,6 @@ def info(info):
     JOIN autori ON autori_podcast.autore_id = autori.autore_id
     WHERE podcast.podcast_id = %s
     """, (info,))
-    print(podcast[0])
     return render_template('podcast_info.html', username=session['username'], dettagli=dettagli, titolo_p=titolo_p[0], recensione=recensione, podcast=podcast[0])
 
 @app.route('/recensione', methods=['GET', 'POST'])
@@ -175,12 +174,16 @@ def recensione():
         titolo = request.form['titolo-recensione']
         recensione = request.form['recensione']
         rating = request.form['rating']
-        # podcast_id = request.form['podcast_id']
-        # utente_id = request.form['utente_id']
-        cursor.execute('INSERT INTO recensioni_sito (titolo_recensione, testo, voto) VALUES (%s, %s, %s)', (titolo, recensione, rating,))
+        podcast_id = request.form.get('podcast_id')
+        print(podcast_id)
+
+        utente_id = session.get('utenti_id')
+        print(utente_id)
+
+        cursor.execute('INSERT INTO recensioni_sito (titolo_recensione, testo, voto, podcast_id, utenti_id) VALUES (%s, %s, %s, %s, %s)', (titolo, recensione, rating, podcast_id, utente_id,))
         connection.commit()
         return redirect(url_for('recensione'))
-    return render_template('podcast_info.html')
+    return render_template('podcast_info.html', username=session['username'])
 
 @app.route('/profilo/<id>')
 def profilo(id):
@@ -206,16 +209,46 @@ def delete_account():
     else:
         return redirect(url_for('login'))
 
-@app.route('/podcasts/<nome_cat>')
-def categoria(nome_cat):
+@app.route('/podcasts/<nome_cat>', defaults={'page': 0})
+@app.route('/podcasts/<nome_cat>/page/<int:page>')
+def categoria(nome_cat, page):
+    offset = page * 24
     podcast = execute_query("""
     SELECT podcast.titolo, podcast.podcast_id, dettagli.img_url
     FROM podcast
     JOIN categorie ON categorie.category_id = podcast.category_id
     JOIN dettagli ON dettagli.podcast_id = podcast.podcast_id
     WHERE categorie.nome_cat = %s
-    LIMIT 24""", (nome_cat,))
-    return render_template('podcasts.html', nome_cat=nome_cat, podcast=podcast, username=session['username'], flag=True, user_id=session['utente_ID'])
+    LIMIT 24 OFFSET %s""", (nome_cat, offset,))
+    totale_page = execute_query("""
+    SELECT COUNT(*) as n
+    FROM podcast
+    JOIN categorie ON podcast.category_id = categorie.category_id
+    WHERE categorie.nome_cat = %s
+    """, (nome_cat,))
+    return render_template('podcasts.html', nome_cat=nome_cat, totale_page=totale_page[0]['n']//24, podcast=podcast, username=session['username'], flag=True, user_id=session['utente_ID'], page=page)
+
+@app.route('/podcasts/search')
+def ricerca():
+    cerca = request.args.get('search')
+    categoria = request.args.get('categoria')
+
+    ricerca_podcast = execute_query("""
+    SELECT *
+    FROM podcast
+    JOIN categorie ON categorie.category_id = podcast.category_id
+    JOIN dettagli ON dettagli.podcast_id = podcast.podcast_id
+    WHERE podcast.titolo LIKE %s
+    AND categorie.nome_cat = %s
+    """, ("%" + cerca + "%", categoria))
+    totale_page = execute_query("""
+    SELECT COUNT(*) as n
+    FROM podcast
+    JOIN categorie ON categorie.category_id = podcast.category_id
+    WHERE podcast.titolo LIKE %s
+    AND categorie.nome_cat = %s
+        """, ("%" + cerca + "%", categoria))
+    return render_template('podcasts_search.html', titolo=cerca, nome_cat=categoria, totale_page=totale_page[0]['n'] // 24, podcast=ricerca_podcast, username=session['username'], flag=True, user_id=session['utente_ID'])
 
 
 if __name__ == '__main__':

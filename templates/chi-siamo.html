@@ -52,10 +52,6 @@
                                 <li><a href="/profilo/{{user_id}}"
                                         class="link mx-0 text-decoration-none fs-5 link-nav dropdown-item">Impostazioni</a>
                                 </li>
-
-                                <li><a href="/logout"
-                                        class="link mx-0 text-decoration-none fs-5 link-nav dropdown-item">Logout</a>
-                                </li>
                                 {% endif %}
                             </ul>
                         </div>
@@ -133,17 +129,17 @@
     <div class="container-fluid" style="background-color: #000;">
         <div class="row">
             <h1 class="testo-bianco mb-5 text-center">I nostri risultati:</h1>
-            <div class="col-lg-6 col-md-12 mb-5">
+            <div class="col-lg-6 col-md-12">
                 <p class="testo-bianco">Le parole più utilizzate:</p>
-                <iframe title="wordcloud" width="450" height="600"
+                <iframe class="custom-iframe mb-5" title="wordcloud"
                     src="https://app.powerbi.com/view?r=eyJrIjoiMWEyYzE0YmYtYzZlZi00Mjc1LWEzNzAtMGI2YjY5MWQ4YmJkIiwidCI6ImM5NDI0M2ViLTZmMGUtNDU2Ni1hMjk2LWI1ZGZjOWQyNTczYiIsImMiOjh9"
-                    frameborder="0" allowFullScreen="true" style="width: 100%;"></iframe>
+                    frameborder="0" allowFullScreen="true" style="width: 100%; border-radius: 10px;"></iframe>
             </div>
             <div class="col-lg-6 col-md-12">
                 <p class="testo-bianco">Le parole più utilizzate:</p>
-                <iframe title="wordcloud" width="450" height="600"
+                <iframe class="custom-iframe" title="wordcloud"
                     src="https://app.powerbi.com/view?r=eyJrIjoiMWEyYzE0YmYtYzZlZi00Mjc1LWEzNzAtMGI2YjY5MWQ4YmJkIiwidCI6ImM5NDI0M2ViLTZmMGUtNDU2Ni1hMjk2LWI1ZGZjOWQyNTczYiIsImMiOjh9"
-                    frameborder="0" allowFullScreen="true" style="width: 100%;"></iframe>
+                    frameborder="0" allowFullScreen="true" style="width: 100%; border-radius: 10px;"></iframe>
             </div>
 
         </div>

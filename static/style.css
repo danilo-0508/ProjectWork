@@ -287,6 +287,11 @@ ul li {
     text-align: center;
 }
 
+.custom-iframe {
+    width: 450px;
+    height: 600px;
+}
+
 @media screen and (min-width: 992px) {
     .login-height {
         margin-bottom: 10rem;
@@ -294,6 +299,13 @@ ul li {
 
     .text-box {
         width: 50rem;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1440px) {
+    .custom-iframe {
+        width: 350px;
+        height: 400px;
     }
 }
 
@@ -328,5 +340,10 @@ ul li {
 
     .text-box {
         width: 26rem;
+    }
+
+    .custom-iframe {
+        width: 250px;
+        height: 300px;
     }
 }

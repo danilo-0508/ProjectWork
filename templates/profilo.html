@@ -22,7 +22,7 @@
             text-align: center;
         }
 
-        h1 {
+        .testo-bianco {
             color: #ffffff;
         }
 
@@ -98,9 +98,9 @@
 </head>
 
 <body>
-    <!--<h1>{{utente.utenti_ID}}, {{utente.username}}, {{utente.email}}</h1>-->
     <div class="container">
-        <h1><b>Impostazioni: </b>{{utente.username}}</h1>
+        <h1 class="testo-bianco"><b>Impostazioni: </b>{{utente.username}}</h1>
+        <h2 class="testo-bianco"><b>Email: </b>{{utente.email}}</h2>
         <form id="delete-form" action="{{ url_for('delete_account') }}" method="post">
             <button type="submit" onclick="Conferma(event)" class="btn btn-delete">Elimina Profilo</button>
         </form>
