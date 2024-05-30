@@ -181,10 +181,7 @@ def recensione():
         recensione = request.form['recensione']
         rating = request.form['rating']
         podcast_id = request.form['podcast_id']
-        print(podcast_id)
-
         utente_id = request.form['utente_ID']
-        print(utente_id)
 
         cursor.execute('INSERT INTO recensioni_sito (titolo_recensione, testo, voto, podcast_id, utenti_id) VALUES (%s, %s, %s, %s, %s)', (titolo, recensione, rating, podcast_id, utente_id,))
         connection.commit()
