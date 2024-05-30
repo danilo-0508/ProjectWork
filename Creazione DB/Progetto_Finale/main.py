@@ -6,12 +6,11 @@ from tqdm import tqdm
 
 DB_NAME = "PodcastPro"
 connection = create_server_connection("localhost", "root", "Password1234!")
-# execute_query(connection, f' CREATE if not exists database {DB_NAME}')# drop la prima volta per sostituire in automatico i valori nel DB
+# execute_query(connection, f'Create {DB_NAME}')
 create_database(connection,DB_NAME)
 connection = create_db_connection("localhost", "root","Password1234!", DB_NAME)
 
-# esecuzione create table
-execute_query(connection, create_review_table)
+# esecuzione create tables
 execute_query(connection, create_podcast_table)
 execute_query(connection, create_dettagli_table)
 execute_query(connection, create_categorie_table)
@@ -19,7 +18,7 @@ execute_query(connection, create_utenti_table)
 execute_query(connection, create_recensioni_sito_table)
 execute_query(connection, create_autori_table)
 execute_query(connection, create_autori_podcast_table)
-#commento
+execute_query(connection, create_review_table)
 # esecuzione alter table
 execute_query(connection,alter_podcast)
 execute_query(connection, alter_review)
@@ -33,4 +32,4 @@ inserimento_dati(connection, query_categorie, "categories.csv")
 inserimento_dati(connection, query_podcast, "podcast.csv")
 inserimento_dati(connection,query_autori_podcast,"authors_podcast.csv")
 inserimento_review(connection,"reviews.csv")
-inserimento_dati(connection,query_dettagli, "df_dettagli_podcast_finale(1).csv")
+inserimento_dati(connection,query_dettagli, "dettagli_podcast.csv")
