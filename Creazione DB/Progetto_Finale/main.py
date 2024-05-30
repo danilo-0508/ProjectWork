@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 DB_NAME = "PodcastPro"
 connection = create_server_connection("localhost", "root", "Password1234!")
-execute_query(connection, f' database {DB_NAME}')# drop la prima volta per sostituire in automatico i valori nel DB
+# execute_query(connection, f' CREATE if not exists database {DB_NAME}')# drop la prima volta per sostituire in automatico i valori nel DB
 create_database(connection,DB_NAME)
 connection = create_db_connection("localhost", "root","Password1234!", DB_NAME)
 
