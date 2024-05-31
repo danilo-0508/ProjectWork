@@ -123,7 +123,7 @@ def login():
             session['logged'] = True
             session['username'] = record[1]
             session['utente_ID'] = record[0]
-            #session['is_admin'] = False
+            #session['is_admin'] = True
             return redirect(url_for('home'))
         else:
             msg = 'Username/Password errato. Riprova!'
